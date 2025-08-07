@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apoya Nuestra Causa | Donaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos generales para mantener la consistencia */
+        :root {
+            --dark-blue: #0A1931;
+            --white: #F0F4F8;
+            --light-blue: #2978B5;
+            --animation-duration: 0.8s;
+            --button-color-1: #FFD700; /* Oro */
+            --button-color-2: #8A2BE2; /* Azul violeta */
+            --button-color-3: #FF6347; /* Tomate */
+            --donation-highlight: #FF4500; /* Naranja rojizo para resaltar */
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--white);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--light-blue) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: pulse 15s infinite ease-in-out;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.1; }
+        }
+
+        .floating-element {
+            position: absolute;
+            animation: float 15s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        .floating-element.star {
+            top: 10%;
+            left: 5%;
+            font-size: 3em;
+            animation-delay: 2s;
+            color: var(--button-color-1);
+        }
+
+        .floating-element.heart {
+            bottom: 15%;
+            right: 10%;
+            font-size: 2.5em;
+            animation-delay: 5s;
+            color: var(--donation-highlight);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .main-content {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            max-width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .title {
+            font-size: 4em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            opacity: 0;
+            animation: fadeInDown var(--animation-duration) forwards;
+            animation-delay: 0.5s;
+        }
+
+        .subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeInUp var(--animation-duration) forwards;
+            animation-delay: 1s;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .donation-options {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 30px;
+            opacity: 0;
+            animation: scaleIn var(--animation-duration) forwards;
+            animation-delay: 1.5s;
+        }
+
+        .donation-button {
+            padding: 15px 30px;
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--dark-blue);
+            background-color: var(--white);
+            border-radius: 50px;
+            transition: all 0.4s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            cursor: pointer;
+        }
+
+        .donation-button:hover {
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+        }
+
+        .donation-button.active {
+            background-color: var(--donation-highlight);
+            color: var(--white);
+            transform: scale(1.1);
+        }
+
+        .custom-amount-container {
+            opacity: 0;
+            animation: fadeInUp var(--animation-duration) forwards;
+            animation-delay: 1.8s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        #custom-amount {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: var(--white);
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            width: 150px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        #custom-amount::placeholder {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        #custom-amount:focus {
+            outline: none;
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .donate-button {
+            background-color: var(--donation-highlight);
+            color: var(--white);
+            border: none;
+            padding: 20px 50px;
+            font-size: 1.6em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            opacity: 0;
+            animation: scaleIn var(--animation-duration) forwards;
+            animation-delay: 2.2s;
+        }
+
+        .donate-button:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+        }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        footer {
+            margin-top: 50px;
+            font-size: 1em;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        footer:hover {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <div class="floating-element star">🌟</div>
+    <div class="floating-element heart">💖</div>
+
+    <div class="main-content">
+        <h1 class="title">¡Apoya Nuestra Causa!</h1>
+        <p class="subtitle">Con tu ayuda, podemos seguir iluminando las mentes de los niños.</p>
+        
+        <div class="donation-options">
+            <button class="donation-button" data-amount="5">5 $</button>
+            <button class="donation-button" data-amount="10">10 $</button>
+            <button class="donation-button" data-amount="20">20 $</button>
+            <button class="donation-button" data-amount="50">50 $</button>
+        </div>
+
+        <div class="custom-amount-container">
+            <input type="number" id="custom-amount" placeholder="Otra cantidad">
+        </div>
+        
+        <button class="donate-button" id="donate-now-btn">
+            Donar ahora 🚀
+        </button>
+    </div>
+    
+    <footer>
+        <p>Tu generosidad transforma vidas.</p>
+    </footer>
+    
+    <script>
+        const donationButtons = document.querySelectorAll('.donation-button');
+        const customAmountInput = document.getElementById('custom-amount');
+
+        donationButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove 'active' class from all buttons
+                donationButtons.forEach(btn => btn.classList.remove('active'));
+                // Add 'active' class to the clicked button
+                button.classList.add('active');
+                // Clear the custom amount input
+                customAmountInput.value = '';
+            });
+        });
+
+        customAmountInput.addEventListener('focus', () => {
+            // Remove 'active' class from all buttons when user focuses on custom input
+            donationButtons.forEach(btn => btn.classList.remove('active'));
+        });
+    </script>
+
+</body>
+</html>
