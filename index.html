@@ -14,6 +14,9 @@
             --white: #F0F4F8;
             --light-blue: #2978B5;
             --animation-duration: 0.8s;
+            --button-color-1: #FFD700; /* Oro */
+            --button-color-2: #8A2BE2; /* Azul violeta */
+            --button-color-3: #FF6347; /* Tomate */
         }
 
         body {
@@ -26,9 +29,9 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            min-height: 100vh; /* Asegura que la página ocupe toda la altura de la pantalla */
+            min-height: 100vh;
             text-align: center;
-            overflow: hidden; /* Evita barras de desplazamiento no deseadas */
+            overflow: hidden;
         }
 
         /* Animación sutil de fondo */
@@ -51,6 +54,35 @@
             100% { transform: scale(1); opacity: 0.1; }
         }
 
+        /* Elementos flotantes para un toque infantil */
+        .floating-element {
+            position: absolute;
+            animation: float 15s infinite ease-in-out;
+            opacity: 0.6;
+        }
+
+        .floating-element.star {
+            top: 10%;
+            left: 5%;
+            font-size: 3em;
+            animation-delay: 2s;
+            color: var(--button-color-1);
+        }
+
+        .floating-element.lightbulb {
+            bottom: 15%;
+            right: 10%;
+            font-size: 2.5em;
+            animation-delay: 5s;
+            color: var(--button-color-2);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(10deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+
         /* Contenedor principal con efecto de fondo translúcido */
         .main-content {
             background-color: rgba(255, 255, 255, 0.05);
@@ -60,6 +92,8 @@
             box-shadow: 0 10px 50px rgba(0,0,0,0.3);
             max-width: 90%;
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            z-index: 2; /* Asegura que el contenido esté por encima de los elementos flotantes */
         }
 
         /* Animación para el título principal */
@@ -81,7 +115,7 @@
             animation: fadeInUp var(--animation-duration) forwards;
             animation-delay: 1s;
         }
-        
+
         /* Animaciones de entrada */
         @keyframes fadeInDown {
             from { opacity: 0; transform: translateY(-50px); }
@@ -118,40 +152,34 @@
             opacity: 0;
             animation: scaleIn var(--animation-duration) forwards;
         }
-
-        .button:nth-child(1) { animation-delay: 1.5s; }
-        .button:nth-child(2) { animation-delay: 1.7s; }
+        
+        /* Animación de entrada escalonada para los botones */
+        .button:nth-child(1) { animation-delay: 1.5s; background-color: var(--button-color-1); color: var(--dark-blue);}
+        .button:nth-child(2) { animation-delay: 1.7s; background-color: var(--button-color-2); color: var(--white); }
+        .button:nth-child(3) { animation-delay: 1.9s; background-color: var(--button-color-3); color: var(--white); }
 
         @keyframes scaleIn {
             from { opacity: 0; transform: scale(0.8); }
             to { opacity: 1; transform: scale(1); }
         }
-        
-        .button::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: var(--light-blue);
-            z-index: -1;
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.4s ease;
-        }
 
-        .button:hover::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
+        /* Efecto de hover mejorado para los botones */
         .button:hover {
-            color: var(--white);
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+            border-color: var(--white);
         }
 
+        /* Añadimos una animación a los iconos dentro de los botones */
+        .button span {
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .button:hover span {
+            transform: rotate(10deg) scale(1.1);
+        }
+        
         /* Estilo del pie de página */
         footer {
             margin-top: 50px;
@@ -166,14 +194,24 @@
     </style>
 </head>
 <body>
+    
+    <div class="floating-element star">🌟</div>
+    <div class="floating-element lightbulb">💡</div>
 
     <div class="main-content">
         <h1 class="title">APRENDE ENSEÑA E ILUMINA</h1>
         <p class="subtitle">¡Un universo de aventuras y aprendizaje te espera!</p>
         
         <div class="buttons-container">
-            <a href="#" class="button">👉 Lenguaje de Señas 🤟</a>
-            <a href="#" class="button">🎨 Clases Divertidas 🎉</a>
+            <a href="senas.html" class="button">
+                <span>👉</span> Lenguaje de Señas <span>🤟</span>
+            </a>
+            <a href="clases.html" class="button">
+                <span>🎨</span> Clases Divertidas <span>🎉</span>
+            </a>
+            <a href="juegos.html" class="button">
+                <span>🎮</span> Juegos y Desafíos <span>🚀</span>
+            </a>
         </div>
     </div>
     
