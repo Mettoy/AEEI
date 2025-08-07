@@ -6,90 +6,110 @@
     <title>APRENDE ENSEÑA E ILUMINA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Balsamiq+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
     <style>
-        /* Paleta de colores y estilos generales */
+        /* Paleta de colores:
+           Azul cielo suave: #E0F7FA
+           Verde agua: #80CBC4
+           Amarillo vibrante: #FFEB3B
+           Rosa pastel: #F48FB1
+           Azul oscuro para texto: #263238
+           Blanco: #FFFFFF
+        */
         body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #FFFDEB; /* Crema suave */
+            font-family: 'Nunito', sans-serif;
+            background-color: #E0F7FA; /* Azul cielo suave */
             margin: 0;
             padding: 0;
             text-align: center;
+            line-height: 1.6;
         }
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 30px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            border-radius: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 40px;
+            background-color: #FFFFFF;
+            border-radius: 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
         }
         header {
-            padding: 30px;
-            background-color: #A2D2FF; /* Azul cielo */
-            border-radius: 25px 25px 0 0;
+            padding: 20px 0;
+            background-color: #80CBC4; /* Verde agua */
+            border-radius: 30px 30px 0 0;
+            margin: -40px -40px 20px -40px; /* Extiende el color al borde del contenedor */
         }
         h1 {
-            color: #264653; /* Azul marino */
-            font-family: 'Balsamiq Sans', cursive;
-            font-size: 3.5em;
+            color: #263238;
+            font-size: 4em;
+            font-weight: 800;
             margin: 0;
-            text-shadow: 2px 2px 5px rgba(255,255,255,0.5);
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+            letter-spacing: 2px;
         }
         h2 {
-            color: #264653;
-            font-size: 2.2em;
-            margin-top: 30px;
+            color: #263238;
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-top: 40px;
         }
         .intro-text {
             color: #555;
-            font-size: 1.3em;
-            margin: 20px 0;
+            font-size: 1.4em;
+            margin: 20px 0 40px;
+            font-weight: 400;
         }
-        .animal-image {
-            margin-top: 40px;
+        .image-container {
+            margin-bottom: 40px;
         }
-        .animal-image img {
+        .image-container img {
             max-width: 100%;
             height: auto;
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+            border-radius: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+            transition: transform 0.3s ease;
+        }
+        .image-container img:hover {
+            transform: scale(1.02);
         }
         .buttons-container {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 30px;
             flex-wrap: wrap;
             margin-top: 40px;
         }
         .button {
             display: inline-block;
             padding: 25px 50px;
-            font-size: 1.6em;
-            font-weight: bold;
-            color: #264653;
+            font-size: 1.7em;
+            font-weight: 700;
+            color: #263238;
             text-decoration: none;
-            border-radius: 25px;
+            border-radius: 35px;
             transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            text-transform: uppercase;
         }
         .button:hover {
-            transform: scale(1.05) translateY(-5px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
         }
         .sign-language-button {
-            background-color: #C5E990; /* Verde menta */
+            background-color: #FFEB3B; /* Amarillo vibrante */
         }
         .fun-classes-button {
-            background-color: #FFC94A; /* Amarillo sol */
+            background-color: #F48FB1; /* Rosa pastel */
         }
         footer {
             margin-top: 50px;
-            padding: 25px;
-            background-color: #A2D2FF;
-            border-radius: 0 0 25px 25px;
-            color: #264653;
+            padding: 30px;
+            background-color: #80CBC4;
+            border-radius: 0 0 30px 30px;
+            color: #263238;
             font-weight: bold;
+            margin: 40px -40px -40px -40px; /* Extiende el color al borde del contenedor */
         }
     </style>
 </head>
@@ -101,10 +121,10 @@
         </header>
 
         <main>
-            <p class="intro-text">¡Hola, pequeño explorador! El mundo está lleno de maravillas y nosotros te ayudaremos a descubrirlas.</p>
+            <p class="intro-text">¡Hola, superhéroe! Prepárate para una aventura llena de diversión y aprendizaje.</p>
             
-            <div class="animal-image">
-                <img src="https://via.placeholder.com/600x300/F4A261/FFFDEB?text=Animalitos+Divertidos" alt="Imagen de animales felices">
+            <div class="image-container">
+                <img src="https://via.placeholder.com/800x400/80CBC4/FFFFFF?text=Ilustraci%C3%B3n+Profesional+y+Bonita" alt="Ilustración de niños felices aprendiendo">
             </div>
             
             <h2>Elige tu gran aventura:</h2>
