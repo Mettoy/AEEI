@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COENIC Nicaragua - Consejos Empresariales</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #0a1128; /* Azul ultra oscuro */
+            color: #f0f0f0; /* Blanco ligeramente apagado para mejor contraste */
+            line-height: 1.7;
+            overflow-x: hidden; /* Evitar scroll horizontal */
+        }
+
+        /* Contenedor principal para un efecto elegante de centrado */
+        .page-container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Sección de Bienvenida */
+        .bienvenida-section {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url('data:image/jpeg;base64,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');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            color: white;
+            opacity: 0;
+            animation: fadeIn 2s ease-out forwards;
+            box-shadow: inset 0 0 0 2000px rgba(0, 0, 0, 0.5); /* Overlay oscuro para mejor legibilidad */
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        .bienvenida-texto {
+            font-size: 2.8em;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            animation: slideUp 1.5s ease-out 0.5s forwards;
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        /* Botón "Conoce Más" */
+        .conoce-mas-btn {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #0a1128; /* Azul ultra oscuro */
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            font-size: 1.1em;
+            opacity: 0;
+            animation: slideUp 1.5s ease-out 1.5s forwards, pulse 2s infinite alternate 3s;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+        }
+
+        .conoce-mas-btn:hover {
+            background-color: #fff;
+            color: #0a1128;
+            border-color: #0a1128;
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        @keyframes pulse {
+            from { transform: translateX(-50%) scale(1); }
+            to { transform: translateX(-50%) scale(1.05); }
+        }
+
+        /* Secciones secundarias */
+        .seccion-animada {
+            padding: 80px 20px;
+            text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease-out, transform 1s ease-out;
+        }
+        
+        .seccion-animada.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .conferencistas-section {
+            background-color: #1c2541; /* Otro tono de azul oscuro */
+        }
+        
+        .contacto-section {
+            background-color: #000000; /* Negro */
+        }
+        
+        .seccion-animada h2 {
+            color: #fff;
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+
+        .seccion-animada p {
+            margin-bottom: 20px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Estilo de botones de secciones secundarias */
+        .btn-seccion {
+            background-color: transparent;
+            color: #fff;
+            padding: 15px 30px;
+            text-decoration: none;
+            border: 2px solid #fff;
+            border-radius: 5px;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+
+        .btn-seccion:hover {
+            background-color: #fff;
+            color: #0a1128;
+            transform: scale(1.05);
+        }
+
+        /* Pie de Página */
+        .footer {
+            text-align: center;
+            padding: 30px 20px;
+            background-color: #0a1128; /* Azul ultra oscuro */
+            color: #777;
+            font-size: 0.9em;
+        }
+
+        .footer.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <section class="bienvenida-section">
+        <h1 class="bienvenida-texto">Bienvenidos a Consejos Empresariales de Nicaragua</h1>
+        <a href="conoce.html" class="conoce-mas-btn">Conoce más de nosotros</a>
+    </section>
+
+    <main class="page-container">
+        <section class="conferencistas-section seccion-animada">
+            <h2>Conocer a Nuestros Conferencistas</h2>
+            <p>Descubre a nuestros expertos que te guiarán hacia el éxito empresarial con conocimientos de vanguardia.</p>
+            <a href="conferencista.html" class="btn-seccion">Ver Conferencistas</a>
+        </section>
+
+        <section class="contacto-section seccion-animada">
+            <h2>Ponte en Contacto con Nosotros</h2>
+            <p>Estamos listos para ayudarte a alcanzar tus metas. ¡Contáctanos hoy para una consulta gratuita!</p>
+            <a href="contacto.html" class="btn-seccion">Contactar</a>
+        </section>
+    </main>
+
+    <footer class="footer seccion-animada">
+        <p>&copy; 2025 Derechos Reservados COENIC NICARAGUA</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animaciones al hacer scroll
+            const sections = document.querySelectorAll('.seccion-animada');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target); // La animación ocurre solo una vez
+                    }
+                });
+            }, { threshold: 0.3 }); // Se activa cuando el 30% del elemento es visible
+
+            sections.forEach((section) => {
+                observer.observe(section);
+            });
+        });
+    </script>
+
+</body>
+</html>
