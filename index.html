@@ -6,139 +6,180 @@
     <title>APRENDE ENSEÑA E ILUMINA</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Paleta de colores:
-           Azul cielo suave: #E0F7FA
-           Verde agua: #80CBC4
-           Amarillo vibrante: #FFEB3B
-           Rosa pastel: #F48FB1
-           Azul oscuro para texto: #263238
-           Blanco: #FFFFFF
-        */
+        /* Estilos generales a pantalla completa */
+        :root {
+            --dark-blue: #0A1931;
+            --white: #F0F4F8;
+            --light-blue: #2978B5;
+            --animation-duration: 0.8s;
+        }
+
         body {
-            font-family: 'Nunito', sans-serif;
-            background-color: #E0F7FA; /* Azul cielo suave */
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--dark-blue);
+            color: var(--white);
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Asegura que la página ocupe toda la altura de la pantalla */
             text-align: center;
-            line-height: 1.6;
+            overflow: hidden; /* Evita barras de desplazamiento no deseadas */
         }
-        .container {
-            max-width: 1000px;
-            margin: 30px auto;
-            padding: 40px;
-            background-color: #FFFFFF;
-            border-radius: 40px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
-            position: relative;
-            overflow: hidden;
+
+        /* Animación sutil de fondo */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, var(--light-blue) 0%, transparent 70%);
+            opacity: 0.1;
+            animation: pulse 15s infinite ease-in-out;
+            z-index: -1;
         }
-        header {
-            padding: 20px 0;
-            background-color: #80CBC4; /* Verde agua */
-            border-radius: 30px 30px 0 0;
-            margin: -40px -40px 20px -40px; /* Extiende el color al borde del contenedor */
+
+        @keyframes pulse {
+            0% { transform: scale(1); opacity: 0.1; }
+            50% { transform: scale(1.2); opacity: 0.2; }
+            100% { transform: scale(1); opacity: 0.1; }
         }
-        h1 {
-            color: #263238;
-            font-size: 4em;
-            font-weight: 800;
-            margin: 0;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
-            letter-spacing: 2px;
+
+        /* Contenedor principal con efecto de fondo translúcido */
+        .main-content {
+            background-color: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 60px 40px;
+            border-radius: 25px;
+            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            max-width: 90%;
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
-        h2 {
-            color: #263238;
-            font-size: 2.5em;
+
+        /* Animación para el título principal */
+        .title {
+            font-size: 5em;
             font-weight: 700;
-            margin-top: 40px;
+            margin-bottom: 20px;
+            letter-spacing: 3px;
+            opacity: 0;
+            animation: fadeInDown var(--animation-duration) forwards;
+            animation-delay: 0.5s;
         }
-        .intro-text {
-            color: #555;
-            font-size: 1.4em;
-            margin: 20px 0 40px;
-            font-weight: 400;
+
+        .subtitle {
+            font-size: 1.5em;
+            font-weight: 300;
+            margin-bottom: 50px;
+            opacity: 0;
+            animation: fadeInUp var(--animation-duration) forwards;
+            animation-delay: 1s;
         }
-        .image-container {
-            margin-bottom: 40px;
+        
+        /* Animaciones de entrada */
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 30px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .image-container img:hover {
-            transform: scale(1.02);
-        }
+
+        /* Estilo de los botones con animaciones */
         .buttons-container {
             display: flex;
             justify-content: center;
             gap: 30px;
             flex-wrap: wrap;
-            margin-top: 40px;
         }
+
         .button {
             display: inline-block;
-            padding: 25px 50px;
-            font-size: 1.7em;
-            font-weight: 700;
-            color: #263238;
+            padding: 20px 40px;
+            font-size: 1.4em;
+            font-weight: 600;
+            color: var(--dark-blue);
             text-decoration: none;
-            border-radius: 35px;
+            background-color: var(--white);
+            border-radius: 50px;
             transition: all 0.4s ease;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            text-transform: uppercase;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+            opacity: 0;
+            animation: scaleIn var(--animation-duration) forwards;
         }
+
+        .button:nth-child(1) { animation-delay: 1.5s; }
+        .button:nth-child(2) { animation-delay: 1.7s; }
+
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        
+        .button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--light-blue);
+            z-index: -1;
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s ease;
+        }
+
+        .button:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
         .button:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            color: var(--white);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
         }
-        .sign-language-button {
-            background-color: #FFEB3B; /* Amarillo vibrante */
-        }
-        .fun-classes-button {
-            background-color: #F48FB1; /* Rosa pastel */
-        }
+
+        /* Estilo del pie de página */
         footer {
             margin-top: 50px;
-            padding: 30px;
-            background-color: #80CBC4;
-            border-radius: 0 0 30px 30px;
-            color: #263238;
-            font-weight: bold;
-            margin: 40px -40px -40px -40px; /* Extiende el color al borde del contenedor */
+            font-size: 1em;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+
+        footer:hover {
+            opacity: 1;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header>
-            <h1>🌟 APRENDE ENSEÑA E ILUMINA 🌟</h1>
-        </header>
-
-        <main>
-            <p class="intro-text">¡Hola, superhéroe! Prepárate para una aventura llena de diversión y aprendizaje.</p>
-            
-            <div class="image-container">
-                <img src="https://via.placeholder.com/800x400/80CBC4/FFFFFF?text=Ilustraci%C3%B3n+Profesional+y+Bonita" alt="Ilustración de niños felices aprendiendo">
-            </div>
-            
-            <h2>Elige tu gran aventura:</h2>
-
-            <div class="buttons-container">
-                <a href="#" class="button sign-language-button">👉 Lenguaje de Señas 🤟</a>
-                <a href="#" class="button fun-classes-button">🎨 Clases Divertidas 🎉</a>
-            </div>
-        </main>
+    <div class="main-content">
+        <h1 class="title">APRENDE ENSEÑA E ILUMINA</h1>
+        <p class="subtitle">¡Un universo de aventuras y aprendizaje te espera!</p>
         
-        <footer>
-            <p>Con mucho amor, el equipo de APRENDE ENSEÑA E ILUMINA</p>
-        </footer>
+        <div class="buttons-container">
+            <a href="#" class="button">👉 Lenguaje de Señas 🤟</a>
+            <a href="#" class="button">🎨 Clases Divertidas 🎉</a>
+        </div>
     </div>
+    
+    <footer>
+        <p>Con mucho amor para nuestros pequeños superhéroes.</p>
+    </footer>
 
 </body>
 </html>
