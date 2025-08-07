@@ -1,216 +1,112 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💖 Apoya a Nuestros Pequeños Héroes | Donaciones</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <style>
-        /* Paleta de colores vivos y juguetones */
-        :root {
-            --background-color: #f7f9fc; 
-            --main-text-color: #333333;
-            --card-background: #ffffff;
-            --accent-purple: #8A2BE2;
-            --accent-yellow: #FFD700;
-            --accent-pink: #FF69B4;
-            --button-green: #2ecc71;
-        }
-
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: var(--background-color);
-            color: var(--main-text-color);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            text-align: center;
-            overflow: hidden;
-        }
-
-        /* Animación de fondo con confeti y destellos */
-        .background-anim {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at top left, var(--accent-yellow), transparent 50%),
-                        radial-gradient(circle at bottom right, var(--accent-pink), transparent 50%);
-            opacity: 0.2;
-            animation: pulse-colors 20s infinite ease-in-out;
-            z-index: -1;
-        }
-
-        @keyframes pulse-colors {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        .main-content {
-            background-color: var(--card-background);
-            padding: 50px 40px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            max-width: 90%;
-            border: 5px solid var(--accent-purple);
-            position: relative;
-            z-index: 2;
-            animation: fadeIn 1s forwards;
-        }
-
-        .title {
-            font-family: 'Fredoka', sans-serif;
-            font-size: 3.5em;
-            font-weight: 700;
-            color: var(--accent-purple);
-            margin-bottom: 10px;
-            animation: popIn 0.8s forwards;
-            animation-delay: 0.3s;
-        }
-
-        .subtitle {
-            font-size: 1.2em;
-            font-weight: 400;
-            color: var(--main-text-color);
-            margin-bottom: 30px;
-            animation: fadeIn 1s forwards;
-            animation-delay: 0.6s;
-        }
-
-        .donation-table {
-            width: 100%;
-            max-width: 500px;
-            margin: 0 auto 30px auto;
-            border-collapse: separate;
-            border-spacing: 0;
-            background-color: var(--background-color);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            animation: slideInUp 0.8s forwards;
-            animation-delay: 1s;
-        }
-
-        .donation-table th, .donation-table td {
-            padding: 15px;
-            border-bottom: 2px solid #e0e0e0;
-            text-align: left;
-        }
-
-        .donation-table th {
-            background-color: var(--accent-purple);
-            color: var(--white);
-            font-weight: 700;
-        }
-
-        .donation-table td {
-            color: var(--main-text-color);
-            font-weight: 400;
-        }
-
-        .donation-table tr:last-child td {
-            border-bottom: none;
-        }
-
-        .donation-table tr:nth-child(even) {
-            background-color: #f0f0f0;
-        }
-
-        .donation-table td:first-child {
-            font-weight: 700;
-            color: var(--accent-purple);
-        }
-
-        .back-button {
-            display: inline-block;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            font-weight: 700;
-            color: var(--card-background);
-            background-color: var(--button-green);
-            border-radius: 50px;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            margin-top: 40px;
-            animation: scaleIn 0.8s forwards;
-            animation-delay: 1.5s;
-        }
-
-        .back-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 0.9em;
-            color: rgba(51, 51, 51, 0.7);
-            opacity: 0;
-            animation: fadeIn 1s forwards;
-            animation-delay: 1.8s;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        @keyframes popIn {
-            from { transform: scale(0.5); opacity: 0; }
-            to { transform: scale(1); opacity: 1; }
-        }
-
-        @keyframes slideInUp {
-            from { transform: translateY(20px); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AEEI - Aprende Enseña e Ilumina</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="http://googleusercontent.com/image_generation_content/1" type="image/png">
 </head>
 <body>
-    <div class="background-anim"></div>
-    
-    <div class="main-content">
-        <h1 class="title">¡Tu Ayuda Ilumina el Futuro! 💖</h1>
-        <p class="subtitle">Con tu donación, cada pequeño paso se convierte en un gran salto de aprendizaje.</p>
-        
-        <table class="donation-table">
-            <thead>
-                <tr>
-                    <th colspan="2">Información para Donaciones</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>No. de Cuenta</td>
-                    <td>0061137756</td>
-                </tr>
-                <tr>
-                    <td>Banco</td>
-                    <td>Lafise</td>
-                </tr>
-                <tr>
-                    <td>A Nombre de</td>
-                    <td>Jessdael Mettoy</td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <a href="index.html" class="back-button">
-            👈 Volver a la página principal
-        </a>
-    </div>
-    
-    <footer>
-        <p>Cada aporte cuenta. ¡Gracias por ser un superhéroe!</p>
-    </footer>
-    
+
+    <header>
+        <div class="logo">
+            <a href="#inicio">
+                <img src="http://googleusercontent.com/image_generation_content/1" alt="Logo de AEEI">
+            </a>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#quienes-somos">Quiénes Somos</a></li>
+                <li><a href="#programas">Programas</a></li>
+                <li><a href="#contacto">Contáctanos</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>Aprende Enseña e Ilumina (AEEI)</h1>
+                <p class="slogan">Un espacio de aprendizaje seguro y amoroso para niños únicos.</p>
+                <p>¡Bienvenidos a AEEI! Somos un colegio dedicado a proporcionar un entorno educativo inclusivo y de apoyo para niños con necesidades especiales como autismo, síndrome de Down y TDAH. Nuestra misión es potenciar las habilidades individuales de cada niño, fomentando su desarrollo académico, social y emocional a través de un currículo adaptado y un equipo de profesionales apasionados.</p>
+            </div>
+        </section>
+
+        <section id="quienes-somos" class="section">
+            <h2>Quiénes Somos</h2>
+            <div class="section-content">
+                <article>
+                    <h3>Nuestra Historia</h3>
+                    <p>La AEEI nació de la visión de un grupo de padres y educadores que notaron la necesidad de un espacio educativo más especializado y compasivo para sus hijos. Comenzamos como un pequeño grupo de apoyo y hemos crecido hasta convertirnos en una institución reconocida, manteniendo siempre la calidez y el compromiso de nuestros inicios.</p>
+                </article>
+                <article>
+                    <h3>Nuestro Equipo</h3>
+                    <p>Contamos con un equipo multidisciplinario de psicopedagogos, terapeutas ocupacionales, fonoaudiólogos y maestros de educación especial. Todos nuestros profesionales están altamente cualificados y, lo que es más importante, están dedicados a crear un impacto positivo en la vida de nuestros estudiantes.</p>
+                </article>
+                <article>
+                    <h3>Filosofía Educativa</h3>
+                    <p>Nuestro modelo se basa en un enfoque holístico, donde no solo nos centramos en el desarrollo cognitivo, sino también en las habilidades sociales, la independencia y el bienestar emocional. Utilizamos metodologías probadas y recursos innovadores para asegurar que cada niño alcance su máximo potencial.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="programas" class="section">
+            <h2>Nuestros Programas</h2>
+            <div class="section-content">
+                <article class="programa-item">
+                    <h3>Programa de Apoyo al Autismo</h3>
+                    <p>Clases especializadas que se centran en la comunicación, las habilidades sociales y el desarrollo sensorial, utilizando herramientas como la terapia ABA y la comunicación alternativa.</p>
+                </article>
+                <article class="programa-item">
+                    <h3>Programa de Síndrome de Down</h3>
+                    <p>Currículo adaptado para fortalecer las habilidades motoras finas y gruesas, el lenguaje y la cognición, en un entorno de aprendizaje estimulante.</p>
+                </article>
+                <article class="programa-item">
+                    <h3>Programa de TDAH</h3>
+                    <p>Estrategias de aprendizaje que ayudan a mejorar la atención, el enfoque y la organización, con actividades dinámicas y estructuradas para fomentar la concentración.</p>
+                </article>
+                <article class="programa-item">
+                    <h3>Clases de Integración Sensorial</h3>
+                    <p>Sesiones de terapia que ayudan a los niños a procesar la información sensorial de manera más efectiva, mejorando su capacidad de aprendizaje y su bienestar general.</p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contacto" class="section">
+            <h2>Contáctanos</h2>
+            <div class="section-content">
+                <div class="contacto-info">
+                    <p><strong>Dirección:</strong> [Dirección de la ONG/Colegio]</p>
+                    <p><strong>Teléfono:</strong> [Número de teléfono]</p>
+                    <p><strong>Correo Electrónico:</strong> [Correo electrónico]</p>
+                </div>
+                <form action="#" method="POST">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="mensaje">Mensaje:</label>
+                    <textarea id="mensaje" name="mensaje" required></textarea>
+
+                    <button type="submit">Enviar</button>
+                </form>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AEEI - Aprende Enseña e Ilumina. Todos los derechos reservados.</p>
+        <div class="social-media">
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+        </div>
+    </footer>
+
 </body>
 </html>
