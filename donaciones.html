@@ -123,88 +123,70 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        .donation-options {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-bottom: 30px;
+        /* Estilos de la tabla de donaciones */
+        .donation-table {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto 40px auto;
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             opacity: 0;
             animation: scaleIn var(--animation-duration) forwards;
             animation-delay: 1.5s;
         }
 
-        .donation-button {
+        .donation-table th, .donation-table td {
+            padding: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: left;
+        }
+
+        .donation-table th {
+            background-color: var(--light-blue);
+            color: var(--white);
+            font-weight: 600;
+        }
+
+        .donation-table td {
+            color: var(--white);
+            font-weight: 300;
+        }
+
+        .donation-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .donation-table tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.03);
+        }
+
+        .donation-table td:first-child {
+            font-weight: 600;
+        }
+
+        /* Botón de regreso */
+        .back-button {
+            display: inline-block;
             padding: 15px 30px;
             font-size: 1.2em;
             font-weight: 600;
             color: var(--dark-blue);
-            background-color: var(--white);
+            background-color: var(--button-color-1);
             border-radius: 50px;
+            text-decoration: none;
             transition: all 0.4s ease;
             box-shadow: 0 5px 20px rgba(0,0,0,0.2);
-            cursor: pointer;
-        }
-
-        .donation-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
-        }
-
-        .donation-button.active {
-            background-color: var(--donation-highlight);
-            color: var(--white);
-            transform: scale(1.1);
-        }
-
-        .custom-amount-container {
-            opacity: 0;
-            animation: fadeInUp var(--animation-duration) forwards;
-            animation-delay: 1.8s;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 30px;
-        }
-
-        #custom-amount {
-            background-color: rgba(255, 255, 255, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            color: var(--white);
-            padding: 10px 15px;
-            border-radius: 50px;
-            font-size: 1.2em;
-            width: 150px;
-            text-align: center;
-            transition: all 0.3s ease;
-        }
-        #custom-amount::placeholder {
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        #custom-amount:focus {
-            outline: none;
-            background-color: rgba(255, 255, 255, 0.2);
-        }
-
-        .donate-button {
-            background-color: var(--donation-highlight);
-            color: var(--white);
-            border: none;
-            padding: 20px 50px;
-            font-size: 1.6em;
-            font-weight: 700;
-            border-radius: 50px;
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            margin-top: 40px;
             opacity: 0;
             animation: scaleIn var(--animation-duration) forwards;
-            animation-delay: 2.2s;
+            animation-delay: 2s;
         }
 
-        .donate-button:hover {
+        .back-button:hover {
             transform: translateY(-5px) scale(1.05);
             box-shadow: 0 10px 30px rgba(0,0,0,0.4);
         }
@@ -233,48 +215,38 @@
 
     <div class="main-content">
         <h1 class="title">¡Apoya Nuestra Causa!</h1>
-        <p class="subtitle">Con tu ayuda, podemos seguir iluminando las mentes de los niños.</p>
+        <p class="subtitle">¡Tu generosidad es la chispa que ilumina el futuro de nuestros pequeños!</p>
         
-        <div class="donation-options">
-            <button class="donation-button" data-amount="5">5 $</button>
-            <button class="donation-button" data-amount="10">10 $</button>
-            <button class="donation-button" data-amount="20">20 $</button>
-            <button class="donation-button" data-amount="50">50 $</button>
-        </div>
-
-        <div class="custom-amount-container">
-            <input type="number" id="custom-amount" placeholder="Otra cantidad">
-        </div>
+        <table class="donation-table">
+            <thead>
+                <tr>
+                    <th colspan="2">Información para Donaciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>No. de Cuenta</td>
+                    <td>0061137756</td>
+                </tr>
+                <tr>
+                    <td>Banco</td>
+                    <td>Lafise</td>
+                </tr>
+                <tr>
+                    <td>A Nombre de</td>
+                    <td>Jessdael Mettoy</td>
+                </tr>
+            </tbody>
+        </table>
         
-        <button class="donate-button" id="donate-now-btn">
-            Donar ahora 🚀
-        </button>
+        <a href="index.html" class="back-button">
+            Volver al Inicio
+        </a>
     </div>
     
     <footer>
         <p>Tu generosidad transforma vidas.</p>
     </footer>
     
-    <script>
-        const donationButtons = document.querySelectorAll('.donation-button');
-        const customAmountInput = document.getElementById('custom-amount');
-
-        donationButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove 'active' class from all buttons
-                donationButtons.forEach(btn => btn.classList.remove('active'));
-                // Add 'active' class to the clicked button
-                button.classList.add('active');
-                // Clear the custom amount input
-                customAmountInput.value = '';
-            });
-        });
-
-        customAmountInput.addEventListener('focus', () => {
-            // Remove 'active' class from all buttons when user focuses on custom input
-            donationButtons.forEach(btn => btn.classList.remove('active'));
-        });
-    </script>
-
 </body>
 </html>
