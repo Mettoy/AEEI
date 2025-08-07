@@ -3,27 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apoya Nuestra Causa | Donaciones</title>
+    <title>💖 Apoya a Nuestros Pequeños Héroes | Donaciones</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Estilos generales para mantener la consistencia */
+        /* Paleta de colores vivos y juguetones */
         :root {
-            --dark-blue: #0A1931;
-            --white: #F0F4F8;
-            --light-blue: #2978B5;
-            --animation-duration: 0.8s;
-            --button-color-1: #FFD700; /* Oro */
-            --button-color-2: #8A2BE2; /* Azul violeta */
-            --button-color-3: #FF6347; /* Tomate */
-            --donation-highlight: #FF4500; /* Naranja rojizo para resaltar */
+            --background-color: #f7f9fc; 
+            --main-text-color: #333333;
+            --card-background: #ffffff;
+            --accent-purple: #8A2BE2;
+            --accent-yellow: #FFD700;
+            --accent-pink: #FF69B4;
+            --button-green: #2ecc71;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--dark-blue);
-            color: var(--white);
+            background-color: var(--background-color);
+            color: var(--main-text-color);
             margin: 0;
             padding: 0;
             display: flex;
@@ -35,125 +34,85 @@
             overflow: hidden;
         }
 
-        body::before {
-            content: '';
+        /* Animación de fondo con confeti y destellos */
+        .background-anim {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, var(--light-blue) 0%, transparent 70%);
-            opacity: 0.1;
-            animation: pulse 15s infinite ease-in-out;
+            background: radial-gradient(circle at top left, var(--accent-yellow), transparent 50%),
+                        radial-gradient(circle at bottom right, var(--accent-pink), transparent 50%);
+            opacity: 0.2;
+            animation: pulse-colors 20s infinite ease-in-out;
             z-index: -1;
         }
 
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.1; }
-            50% { transform: scale(1.2); opacity: 0.2; }
-            100% { transform: scale(1); opacity: 0.1; }
-        }
-
-        .floating-element {
-            position: absolute;
-            animation: float 15s infinite ease-in-out;
-            opacity: 0.6;
-        }
-
-        .floating-element.star {
-            top: 10%;
-            left: 5%;
-            font-size: 3em;
-            animation-delay: 2s;
-            color: var(--button-color-1);
-        }
-
-        .floating-element.heart {
-            bottom: 15%;
-            right: 10%;
-            font-size: 2.5em;
-            animation-delay: 5s;
-            color: var(--donation-highlight);
-        }
-
-        @keyframes float {
-            0% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(10deg); }
-            100% { transform: translateY(0px) rotate(0deg); }
+        @keyframes pulse-colors {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
         }
 
         .main-content {
-            background-color: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(10px);
-            padding: 60px 40px;
-            border-radius: 25px;
-            box-shadow: 0 10px 50px rgba(0,0,0,0.3);
+            background-color: var(--card-background);
+            padding: 50px 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             max-width: 90%;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 5px solid var(--accent-purple);
             position: relative;
             z-index: 2;
+            animation: fadeIn 1s forwards;
         }
 
         .title {
-            font-size: 4em;
+            font-family: 'Fredoka', sans-serif;
+            font-size: 3.5em;
             font-weight: 700;
+            color: var(--accent-purple);
             margin-bottom: 10px;
-            letter-spacing: 2px;
-            opacity: 0;
-            animation: fadeInDown var(--animation-duration) forwards;
-            animation-delay: 0.5s;
+            animation: popIn 0.8s forwards;
+            animation-delay: 0.3s;
         }
 
         .subtitle {
-            font-size: 1.5em;
-            font-weight: 300;
-            margin-bottom: 40px;
-            opacity: 0;
-            animation: fadeInUp var(--animation-duration) forwards;
-            animation-delay: 1s;
+            font-size: 1.2em;
+            font-weight: 400;
+            color: var(--main-text-color);
+            margin-bottom: 30px;
+            animation: fadeIn 1s forwards;
+            animation-delay: 0.6s;
         }
 
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Estilos de la tabla de donaciones */
         .donation-table {
             width: 100%;
             max-width: 500px;
-            margin: 0 auto 40px auto;
+            margin: 0 auto 30px auto;
             border-collapse: separate;
             border-spacing: 0;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--background-color);
             border-radius: 15px;
             overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            opacity: 0;
-            animation: scaleIn var(--animation-duration) forwards;
-            animation-delay: 1.5s;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            animation: slideInUp 0.8s forwards;
+            animation-delay: 1s;
         }
 
         .donation-table th, .donation-table td {
             padding: 15px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 2px solid #e0e0e0;
             text-align: left;
         }
 
         .donation-table th {
-            background-color: var(--light-blue);
+            background-color: var(--accent-purple);
             color: var(--white);
-            font-weight: 600;
+            font-weight: 700;
         }
 
         .donation-table td {
-            color: var(--white);
-            font-weight: 300;
+            color: var(--main-text-color);
+            font-weight: 400;
         }
 
         .donation-table tr:last-child td {
@@ -161,61 +120,66 @@
         }
 
         .donation-table tr:nth-child(even) {
-            background-color: rgba(255, 255, 255, 0.03);
+            background-color: #f0f0f0;
         }
 
         .donation-table td:first-child {
-            font-weight: 600;
+            font-weight: 700;
+            color: var(--accent-purple);
         }
 
-        /* Botón de regreso */
         .back-button {
             display: inline-block;
             padding: 15px 30px;
             font-size: 1.2em;
-            font-weight: 600;
-            color: var(--dark-blue);
-            background-color: var(--button-color-1);
+            font-weight: 700;
+            color: var(--card-background);
+            background-color: var(--button-green);
             border-radius: 50px;
             text-decoration: none;
-            transition: all 0.4s ease;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
             margin-top: 40px;
-            opacity: 0;
-            animation: scaleIn var(--animation-duration) forwards;
-            animation-delay: 2s;
+            animation: scaleIn 0.8s forwards;
+            animation-delay: 1.5s;
         }
 
         .back-button:hover {
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-        }
-
-        @keyframes scaleIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
         }
 
         footer {
             margin-top: 50px;
-            font-size: 1em;
-            opacity: 0.8;
-            transition: opacity 0.3s;
+            font-size: 0.9em;
+            color: rgba(51, 51, 51, 0.7);
+            opacity: 0;
+            animation: fadeIn 1s forwards;
+            animation-delay: 1.8s;
         }
 
-        footer:hover {
-            opacity: 1;
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes popIn {
+            from { transform: scale(0.5); opacity: 0; }
+            to { transform: scale(1); opacity: 1; }
+        }
+
+        @keyframes slideInUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
         }
     </style>
 </head>
 <body>
+    <div class="background-anim"></div>
     
-    <div class="floating-element star">🌟</div>
-    <div class="floating-element heart">💖</div>
-
     <div class="main-content">
-        <h1 class="title">¡Apoya Nuestra Causa!</h1>
-        <p class="subtitle">¡Tu generosidad es la chispa que ilumina el futuro de nuestros pequeños!</p>
+        <h1 class="title">¡Tu Ayuda Ilumina el Futuro! 💖</h1>
+        <p class="subtitle">Con tu donación, cada pequeño paso se convierte en un gran salto de aprendizaje.</p>
         
         <table class="donation-table">
             <thead>
@@ -240,12 +204,12 @@
         </table>
         
         <a href="index.html" class="back-button">
-            Volver al Inicio
+            👈 Volver a la página principal
         </a>
     </div>
     
     <footer>
-        <p>Tu generosidad transforma vidas.</p>
+        <p>Cada aporte cuenta. ¡Gracias por ser un superhéroe!</p>
     </footer>
     
 </body>
