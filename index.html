@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>APRENDE ENSEÑA E ILUMINA</title>
+    <title>AEEI INICIO</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -190,7 +190,41 @@
 
         footer:hover {
             opacity: 1;
-        }
+        }.floating-element.balloon {
+    top: 25%;
+    left: 15%;
+    font-size: 3.5em;
+    animation-duration: 18s;
+    animation-delay: 3s;
+    color: #FF69B4; /* Rosa */
+}
+
+.floating-element.heart {
+    bottom: 20%;
+    left: 20%;
+    font-size: 2em;
+    animation-duration: 12s;
+    animation-delay: 7s;
+    color: #FF4500; /* Naranja */
+}
+        .confetti {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10"><rect width="2" height="2" x="0" y="0" fill="%23FFD700"/><rect width="2" height="2" x="5" y="5" fill="%238A2BE2"/><rect width="2" height="2" x="2" y="8" fill="%23FF6347"/><rect width="2" height="2" x="8" y="2" fill="%232978B5"/></svg>');
+    background-repeat: repeat;
+    animation: confetti-fall 30s linear infinite;
+    opacity: 0.5;
+    z-index: 1;
+}
+
+@keyframes confetti-fall {
+    from { background-position: 0 0; }
+    to { background-position: 0 100%; }
+}
     </style>
 </head>
 <body>
@@ -199,23 +233,25 @@
     <div class="floating-element lightbulb">💡</div>
 
     <div class="main-content">
-        <h1 class="title">APRENDE ENSEÑA E ILUMINA</h1>
+        <h1 class="title">ESCOGE TU OPCION</h1>
         <p class="subtitle">¡Un universo de aventuras y aprendizaje te espera!</p>
         
         <div class="buttons-container">
-            <a href="senas.html" class="button">
+            <a href="señas.html" class="button">
                 <span>👉</span> Lenguaje de Señas <span>🤟</span>
             </a>
             <a href="clases.html" class="button">
-                <span>🎨</span> Clases Divertidas <span>🎉</span>
+                <span>🎨</span> Clases <span>🎉</span>
             </a>
-            <a href="juegos.html" class="button">
-                <span>🎮</span> Juegos y Desafíos <span>🚀</span>
+            <a href="donaciones.html" class="button">
+                <span>🎮</span> Donaciones a Nuestros superheroes <span>🚀</span>
             </a>
         </div>
     </div>
-    
+    <div class="floating-element balloon">🎈</div>
+<div class="floating-element heart">💖</div>
     <footer>
+        <div class="confetti"></div>
         <p>Con mucho amor para nuestros pequeños superhéroes.</p>
     </footer>
 
